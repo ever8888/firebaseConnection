@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Collecting Data</title>
+	<script src="https://www.gstatic.com/firebasejs/9.6.2/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.2/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js"></script>
+</head>
+
+<body>
+			Enter Your Name				
+					<input type="text" class="form-control"
+					id="name" placeholder="Enter your name">
+
+
+					Email address
+					<input type="email" class="form-control"
+					id="mail" placeholder="name@example.com">
+
+
+			<button onclick="write()">Submit</button>
+
+
+
+	
+	<script>
+
+  var firebaseConfig = {
+  apiKey: "AIzaSyAgsgPIMrqFh2Ez-rrxqoXidkUzYo0M6xs",
+  authDomain: "cleanware-174bd.firebaseapp.com",
+  databaseURL: "https://cleanware-174bd-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "cleanware-174bd",
+  storageBucket: "cleanware-174bd.appspot.com",
+  messagingSenderId: "113300839114",
+  appId: "1:113300839114:web:297ebf6cb9803a4e207233",
+  measurementId: "G-JXJJM7TQVM"
+  };
+ 
+           
+firebase.initializeApp(firebaseConfig);
+var database = firebase.database();
+
+function write(){
+firebase.database().ref("User").set({
+name: document.getElementByID("name").value,
+email: document.getElementByID("mail").value
+});
+}
+
+	
+	</script>
+</body>
+
+</html>
