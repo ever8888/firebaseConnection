@@ -1,0 +1,4 @@
+<script>
+  import {get storage} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-storage-compat.js" 
+  </script>
+  
