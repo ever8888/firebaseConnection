@@ -4,49 +4,65 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Collecting Data</title>
-	<script src="https://www.gstatic.com/firebasejs/9.6.2/firebase.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/9.6.2/firebase-analytics.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js"></script>
+  
+	
+
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.2/firebase-database-compat.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/9.6.2/firebase-app-compat.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+
+
+
 </head>
 
 <body>
 			Enter Your Name				
-					<input type="text" class="form-control"
-					id="name" placeholder="Enter your name">
+					<input type="text" id="name" placeholder="Enter your name">
+
+			Email address
+					<input type="text" id="mail" placeholder="name@example.com">
 
 
-					Email address
-					<input type="email" class="form-control"
-					id="mail" placeholder="name@example.com">
-
-
-			<button onclick="write()">Submit</button>
+			<button onclick="insert()">Submit</button>
+			
+			
 
 
 
 	
-	<script>
+	<script id="MainScript">
 
   var firebaseConfig = {
-  apiKey: "AIzaSyAgsgPIMrqFh2Ez-rrxqoXidkUzYo0M6xs",
-  authDomain: "cleanware-174bd.firebaseapp.com",
-  databaseURL: "https://cleanware-174bd-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "cleanware-174bd",
-  storageBucket: "cleanware-174bd.appspot.com",
-  messagingSenderId: "113300839114",
-  appId: "1:113300839114:web:297ebf6cb9803a4e207233",
-  measurementId: "G-JXJJM7TQVM"
+  apiKey: "AIzaSyA-mJ8V6fdc6yEbeVvP-PtbHUN8my4eG9Q",
+  authDomain: "cleanware-c6473.firebaseapp.com",
+  databaseURL: "https://cleanware-c6473-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "cleanware-c6473",
+  storageBucket: "cleanware-c6473.appspot.com",
+  messagingSenderId: "178889303283",
+  appId: "1:178889303283:web:fd2db46a2814d150abc386"
   };
- 
+
            
-firebase.initializeApp(firebaseConfig);
-var database = firebase.database();
+	firebase.initializeApp(firebaseConfig);
+	var name,email;	
 
 function write(){
-firebase.database().ref("User").set({
-name: document.getElementByID("name").value,
-email: document.getElementByID("mail").value
+name=document.getElementById("name").value;
+email= document.getElementById("mail").value;
+
+}
+function insert() {
+
+write();
+
+firebase.database().ref('user/'+name).set({
+
+
+  nameOfUser:name,
+  email:email
+
 });
 }
 
